@@ -18,6 +18,9 @@
     "push",
     "spreadsheet"
   ],
+  "dependencies": {
+    "googleapis": "^27.0.0"
+  },
   "author": "Bach Nguyen",
   "license": "MIT",
   "bugs": {
