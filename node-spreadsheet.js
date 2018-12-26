@@ -181,6 +181,14 @@ module.exports = class NodeSpreadsheet {
     }
 
     saveFile(dest, file ,value) {
+        if ( !fs.existsSync(dest) ) {
+            try {
+                fs.mkdirSync(dest);
+                fs.chmodSync(dest, '0775');
+            } catch (e) {
+                throw e;
+            }
+        }
         var writeStream = fs.createWriteStream(dest + '/' + file);
         writeStream.write(value);
         writeStream.close();
