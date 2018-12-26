@@ -1,0 +1,27 @@
+{
+  "name": "node-push-spreadsheet",
+  "version": "1.0.0",
+  "description": "This module allow push to google spreadsheet via api. ",
+  "main": "node-spreadsheet.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bachnx23/node-spreadsheet.git"
+  },
+  "keywords": [
+    "spreadsheet",
+    "api",
+    "node",
+    "spreadsheet",
+    "push",
+    "spreadsheet"
+  ],
+  "author": "Bach Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bachnx23/node-spreadsheet/issues"
+  },
+  "homepage": "https://github.com/bachnx23/node-spreadsheet#readme"
+}
