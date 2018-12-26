@@ -180,23 +180,10 @@ module.exports = class NodeSpreadsheet {
         });
     }
 
-    saveFile(dest, value) {
-        if ( !fs.existsSync(dest) ) {
-            try {
-                fs.mkdirSync(dest);
-                fs.chmodSync(dest, '0755');
-            }catch (e) {
-                throw e;
-            }
-        }
-
-        fs.writeFile(dest, value, (err) => {
-            if ( err ) {
-                console.log('Write file error ', err);
-            } else {
-                console.log('Write file success');
-            }
-        });
-    }
+    saveFile(dest, file ,value) {
+        var writeStream = fs.createWriteStream(dest + '/' + file);
+        writeStream.write(value);
+        writeStream.close();
+     }
 
 }
