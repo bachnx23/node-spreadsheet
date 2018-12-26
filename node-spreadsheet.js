@@ -2,6 +2,7 @@
 const {google} = require('googleapis');
 const dotenv = require('dotenv');
 const sheets = google.sheets('v4');
+const fs = require('fs');
 
 dotenv.load();
 var config = dotenv.config();
@@ -175,6 +176,24 @@ module.exports = class NodeSpreadsheet {
                         }
                     } 
                 })
+            }
+        });
+    }
+
+    saveFile(dest, value) {
+        if ( !fs.existsSync(dest) ) {
+            try {
+                fs.mkdirSync(dest);
+            }catch (e) {
+                throw e;
+            }
+        }
+
+        fs.writeFile(dest, value, (err) => {
+            if ( err ) {
+                console.log('Write file error ', err);
+            } else {
+                console.log('Write file success');
             }
         });
     }
