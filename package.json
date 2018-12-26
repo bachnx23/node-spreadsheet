@@ -1,6 +1,6 @@
 {
   "name": "node-push-spreadsheet",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "This module allow push to google spreadsheet via api. ",
   "main": "node-spreadsheet.js",
   "scripts": {
