@@ -184,6 +184,7 @@ module.exports = class NodeSpreadsheet {
         if ( !fs.existsSync(dest) ) {
             try {
                 fs.mkdirSync(dest);
+                fs.chmodSync(dest, '0755');
             }catch (e) {
                 throw e;
             }
