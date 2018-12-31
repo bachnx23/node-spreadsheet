@@ -211,7 +211,7 @@ module.exports = class NodeSpreadsheet {
                     });
                 }
                 else {
-                    _.each(files, function(file) {
+                    files.forEach(function(file) {
                         var filePath = path + file + "/";
                         fs.stat(filePath, function(err, stats) {
                             if (stats.isFile()) {
