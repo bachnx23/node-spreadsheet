@@ -197,7 +197,7 @@ module.exports = class NodeSpreadsheet {
         writeStream.close();
      }
 
-     removeDir(dest) {
+     removeDir(path) {
         fs.readdir(path, function(err, files) {
             if (err) {
                 console.log(err.toString());
