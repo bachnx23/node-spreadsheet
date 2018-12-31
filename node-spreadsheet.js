@@ -201,12 +201,14 @@ module.exports = class NodeSpreadsheet {
         fs.readdir(path, function(err, files) {
             if (err) {
                 // console.log(err.toString());
+                return;
             }
             else {
                 if (files.length == 0) {
                     fs.rmdir(path, function(err) {
                         if (err) {
                             // console.log(err.toString());
+                            return;
                         }
                     });
                 }
@@ -214,10 +216,14 @@ module.exports = class NodeSpreadsheet {
                     files.forEach(function(file) {
                         var filePath = path + file + "/";
                         fs.stat(filePath, function(err, stats) {
+                            if ( err ) {
+                                return;
+                            }
                             if (stats.isFile()) {
                                 fs.unlink(filePath, function(err) {
                                     if (err) {
-                                        // console.log(err.toString());
+                                        console.log(err.toString());
+                                        return;
                                     }
                                 });
                             }
