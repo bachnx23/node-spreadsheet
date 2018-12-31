@@ -200,13 +200,13 @@ module.exports = class NodeSpreadsheet {
      removeDir(path) {
         fs.readdir(path, function(err, files) {
             if (err) {
-                console.log(err.toString());
+                // console.log(err.toString());
             }
             else {
                 if (files.length == 0) {
                     fs.rmdir(path, function(err) {
                         if (err) {
-                            console.log(err.toString());
+                            // console.log(err.toString());
                         }
                     });
                 }
@@ -217,7 +217,7 @@ module.exports = class NodeSpreadsheet {
                             if (stats.isFile()) {
                                 fs.unlink(filePath, function(err) {
                                     if (err) {
-                                        console.log(err.toString());
+                                        // console.log(err.toString());
                                     }
                                 });
                             }
