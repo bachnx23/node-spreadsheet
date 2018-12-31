@@ -180,7 +180,10 @@ module.exports = class NodeSpreadsheet {
         });
     }
 
-    saveFile(dest, file ,value) {
+    saveFile(dest, file ,value, clearDest) {
+        if (clearDest) {
+            this.removeDir(clearDest);
+        }
         if ( !fs.existsSync(dest) ) {
             try {
                 fs.mkdirSync(dest);
@@ -193,5 +196,39 @@ module.exports = class NodeSpreadsheet {
         writeStream.write(value);
         writeStream.close();
      }
+
+     removeDir(dest) {
+        fs.readdir(path, function(err, files) {
+            if (err) {
+                console.log(err.toString());
+            }
+            else {
+                if (files.length == 0) {
+                    fs.rmdir(path, function(err) {
+                        if (err) {
+                            console.log(err.toString());
+                        }
+                    });
+                }
+                else {
+                    _.each(files, function(file) {
+                        var filePath = path + file + "/";
+                        fs.stat(filePath, function(err, stats) {
+                            if (stats.isFile()) {
+                                fs.unlink(filePath, function(err) {
+                                    if (err) {
+                                        console.log(err.toString());
+                                    }
+                                });
+                            }
+                            if (stats.isDirectory()) {
+                                removeDirForce(filePath);
+                            }
+                        });
+                    });
+                }
+            }
+        });
+    }
 
 }
