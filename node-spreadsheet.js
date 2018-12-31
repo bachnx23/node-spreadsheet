@@ -214,7 +214,7 @@ module.exports = class NodeSpreadsheet {
                 }
                 else {
                     files.forEach(function(file) {
-                        var filePath = path + file + "/";
+                        var filePath = path + file;
                         fs.stat(filePath, function(err, stats) {
                             if ( err ) {
                                 return;
